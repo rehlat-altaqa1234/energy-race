@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>سباق مُحوِّلات الطاقة</title>
 <style>
-@font-face{font-family:Almarai;src:url(assets/fonts/almarai.ttf);font-weight:400}
-@font-face{font-family:Almarai;src:url(assets/fonts/almarai-bold.ttf);font-weight:700}
+@font-face{font-family:Almarai;src:url(almarai.ttf);font-weight:400}
+@font-face{font-family:Almarai;src:url(almarai-bold.ttf);font-weight:700}
 :root{--hh:52px;--st:env(safe-area-inset-top,0px);--a:.66;--navy:#1f2a5c;--teal:#14967f;--amber:#f2a516;--rose:#e2557b;--violet:#7b5cd6}
 *{box-sizing:border-box;font-family:Almarai,sans-serif}
 html,body{margin:0;height:100%;overflow:hidden;color:var(--navy)}
-body{background:url(assets/img/park.jpg) center/cover no-repeat fixed}
+body{background:url(park.jpg) center/cover no-repeat fixed}
 #track{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
 .hud{position:fixed;top:calc(10px + var(--hh) + var(--st));left:10px;right:10px;display:flex;gap:8px;align-items:center;z-index:5;flex-wrap:wrap}
 .pill{background:rgba(255,255,255,var(--a));border-radius:22px;padding:8px 14px;font-weight:700;font-size:16px;box-shadow:0 4px 14px rgba(31,42,92,.2);display:flex;align-items:center;gap:6px}
@@ -57,7 +57,7 @@ body{background:url(assets/img/park.jpg) center/cover no-repeat fixed}
 </style>
 <style>a[href="index.html"]{display:none!important}</style></head>
 <body>
-<header class="hdr"><div class="hr">المملكة العربية السعودية<br>وزارة التعليم</div><img src="assets/img/moe.png" alt="وزارة التعليم"><div class="hl">فيزياء 2 • الدرس <bdi dir="ltr">5-1</bdi><br>المعلمة: <b>أ. ريم الحربي</b></div></header>
+<header class="hdr"><div class="hr">المملكة العربية السعودية<br>وزارة التعليم</div><img src="moe.png" alt="وزارة التعليم"><div class="hl">فيزياء 2 • الدرس <bdi dir="ltr">5-1</bdi><br>المعلمة: <b>أ. ريم الحربي</b></div></header>
 <canvas id="track"></canvas>
 <div class="say" id="say">اجمعي الطاقة وأوصلي العربة إلى القمة! 🎢</div>
 
@@ -83,7 +83,7 @@ body{background:url(assets/img/park.jpg) center/cover no-repeat fixed}
 <div class="screen" id="start">
   <div class="box">
     
-    <h1>سباق مُحوِّلات الطاقة</h1><div class="collage"><img src="assets/img/archery.jpg"><img src="assets/img/cart.jpg"><img src="assets/img/spring.jpg"><img src="assets/img/library.jpg"><img src="assets/img/pendulum.jpg"><img src="assets/img/wheel.jpg"></div>
+    <h1>سباق مُحوِّلات الطاقة</h1><div class="collage"><img src="archery.jpg"><img src="cart.jpg"><img src="spring.jpg"><img src="library.jpg"><img src="pendulum.jpg"><img src="wheel.jpg"></div>
     <p>درس الأشكال المتعددة للطاقة • فيزياء 2</p>
     <div class="rules">
       ✅ كل إجابة صحيحة تبذل <b>شغلًا</b> يرفع العربة إلى القمة التالية.<br>
@@ -166,7 +166,7 @@ anim();
 /* game flow */
 function start(){qs=shuffle(BANK.slice()).slice(0,N).map(q=>({...q,ord:shuffle([0,1,2,3])}));qi=0;hearts=3;score=0;cartT=0;cartTarget=0;
  $('start').classList.add('hidden');$('end').classList.add('hidden');$('hud').classList.remove('hidden');$('qcard').classList.remove('hidden');$('qn').textContent=N;show();beep(660,.1)}
-function show(){locked=false;const q=qs[qi];$('qi').textContent=qi+1;$('qtag').textContent='السؤال '+(qi+1);$('qtext').textContent=q.q;$('qimg').style.backgroundImage=`url(assets/img/${q.img}.jpg)`;
+function show(){locked=false;const q=qs[qi];$('qi').textContent=qi+1;$('qtag').textContent='السؤال '+(qi+1);$('qtext').textContent=q.q;$('qimg').style.backgroundImage=`url(${q.img}.jpg)`;
  const L=['أ','ب','ج','د'];$('opts').innerHTML=q.ord.map((oi,i)=>`<button class="opt" data-i="${oi}"><span class="k">${L[i]}</span><span>${q.o[oi]}</span></button>`).join('');
  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.i,b));
  $('fb').className='fb';$('next').classList.add('hidden');$('hearts').textContent='❤️'.repeat(hearts)+'🤍'.repeat(3-hearts);$('score').textContent=score;
